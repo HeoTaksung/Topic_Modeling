@@ -35,7 +35,7 @@ LDA_Coherence, LDA_Perplexity
    
    * LDA를 통해 나온 3~29의 topic을 가지는 Coherence와 Perplexity를 수식 (1)인 Standardization을 진행
    
-     * *Standardization(x) = (x - mean(x)) / std(x)* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)
+     * *Standardization(x) = (x - mean(x)) / std(x)* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)
    
    * 수식 (2)에서 값이 제일 큰 것을 예측 결과로 정의
    
