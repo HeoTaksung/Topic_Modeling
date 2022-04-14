@@ -1,67 +1,67 @@
 # Topic_Modeling
 LDA_Coherence, LDA_Perplexity
 
- * [LDA와 선호도 전파 알고리즘을 이용한 아동 발화의 화제수 측정](http://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE09301947)
+ * [Measurement of the number of topics in children"s speech using LDA and Affinity propagation algorithm](http://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE09301947) (LDA와 선호도 전파 알고리즘을 이용한 아동 발화의 화제수 측정)
  
-   * `오세은`, `허탁성`, `이윤경`, `김유섭`
+   * `Se-Eun Oh`, `Tak-Sung Heo`, `Yoonkyoung Lee`, `Yu-Seop Kim`
    
 -----------------------------------------------
 
-## 데이터
+## Data
 
- * 한림대학교 언어병리학과에서 수집한 아동 발화 데이터 (주제 - 학교생활, 가정생활, 기타/친구)
+ * Children's speech data collected by the Department of Speech Pathology at Hallym University (Topic - School life, family life, other/friends)
  
-   * 1학년, 3학년, 5학년의 집단 데이터
+   * 1st, 3rd, and 5th grade group data (Korean)
    
-     * 데이터 예시 (주제 변환 발화 2-3)
+     * Data example
 
-        |    턴    | 발화  | 대화  |
-        | :------: | :---: | :-----: |
-        |  <학교>  |      | 검 학교생활은 어때?          |
-        |    1     |   1  | 아 재미없어요.               |
-        |          |      | 검 재미없구나. 그리고?       |
-        |    2     |   2  | 아 점심 먹고 양치하고        |
-        |          |   3  | 아 근데 엄마 보고싶다.       |
+        |    Turn    | Utterance  | Korean speech  | English speech |
+        | :------: | :---: | :-----: | :------: |
+        |  <학교>  |      | 검 학교생활은 어때?          | Examiner: How is your school life?
+        |    1     |   1  | 아 재미없어요.              | Child: No fun.
+        |          |      | 검 재미없구나. 그리고?       | Examiner: That's not fun. And?
+        |    2     |   2  | 아 점심 먹고 양치하고        | Child: Eat lunch and brush my teeth
+        |          |   3  | 아 근데 엄마 보고싶다.       | Child: And, I miss my mom.
         
 -----------------------------------------------
 
 ## Latent Dirichlet Allocation
 
- * LDA 토픽 모델링
+ * LDA Topic Modeling
  
-   * LDA는 화제 수 K를 사용자가 정의하여 판단하나, 연구 목적은 대화 내용의 화제 수를 맞추기 위해 Coherence와 Perplexity를 이용하여 화제 수를 측정한다.
+   * In LDA, the number of topics K is defined by the user, but the purpose of the study is to measure the number of topics using coherence and perplexity to measure the number of topics in speech.
    
-   * K를 3-29까지를 설정 (본 연구에서 이용하는 데이터의 최소 주제 수는 3개이므로 K를 3부터 설정)
+   * Set K to 3-29 (K starts at 3 because the minimum number of topics in the data used in this study is 3).
    
-   * LDA를 통해 나온 3~29의 topic을 가지는 Coherence와 Perplexity를 수식 (1)인 Standardization을 진행
+   * Equation (1), standardization, is performed on the values of coherence and perplexity with topics from 3 to 29 through LDA.
    
      * *Standardization(x) = (x - mean(x)) / std(x)* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1)
    
-   * 수식 (2)에서 값이 제일 큰 것을 예측 결과로 정의
+   * In Equation (2), the highest value is defined as the prediction result.
    
      * *f(co,pe) = Standardization(co) - Standardization(pe)* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2)
 
 -----------------------------------------------
 
-## 실험 결과
+## Experiment Result
 
- * 학령기에 따른 대화의 화제수 비교
+ * Comparison of the number of topics in speech according to school age
  
-    |   학년  | LDA | 언어병리학  |
+    |   Grade (age)  | LDA | Speech pathology  |
     | :-----: | :--: | :-----: |
-    |    1    |  19  | 19.5 |
-    |    3    |   4  | 17.2 |
-    |    5    |   4  | 12.5 |
+    |    1 (8)    |  19  | 19.5 |
+    |    3 (10)   |   4  | 17.2 |
+    |    5 (12)   |   4  | 12.5 |
     
-    **LDA와 언어 병리학과의 상관 계수 - 0.7525**
+    **The correlation coefficient between LDA and speech pathology - 0.7525**
     
 -----------------------------------------------
 
-## 결론
+## Conclusion
 
-  * LDA 토픽 모델링과 언어 병리학과의 상관 계수를 보았을 때, 높은 상관 계수를 확인할 수 있었다.
+  * When looking at the correlation coefficient between LDA topic modeling and speech pathology, a high correlation coefficient was confirmed.
   
-  * 하지만 LDA에서의 3학년과 5학년의 화제 수가 같게 나오므로, 다른 토픽 모델링을 모색할 필요가 있다.
+  * However, since the number of topics in the 3rd and 5th graders in LDA is the same, it is necessary to explore different topic modeling.
   
-  * 향후 연구에서는 더욱 정교한 토픽 모델링의 실험을 할 예정이며, 이를 통해 주제 수를 자동화 하는 방법을 모색할 것이다.
+  * In future study, we plan to experiment with more sophisticated topic modeling, and through this, we will explore how to automate the number of topics.
    
